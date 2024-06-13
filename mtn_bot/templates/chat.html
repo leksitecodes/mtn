@@ -3,9 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bojo</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <h1>Hei Worddd</h1>
+    <style>
+        
+        /* Styles for the chat box container */
+        #chatBox{
+            margin-right: auto;
+            margin-left: auto;
+            width: 40%;
+            margin-top: 50px;
+        }
+
+        /* Styles for the bot's text */
+        .botText{
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 25px;
+            text-align: left;
+            color: green;
+            width: 70%;
+        }
+
+        /* Styles for the user input container */
+        #userInput{
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 50px;
+            width: 20%;
+        }
+
+        /* Styles for the text input field */
+        #textInput{
+            border: 1px solid green;
+            font-size: 16px;
+            padding: 3px;
+            width: 80;
+            border-radius: 5px;
+        }
+
+        /* Styles for the send button */
+        #button{
+            padding: 8px;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 3px;
+        }
+
+        /* Styles for the heading */
+        h1{
+            text-align: center;
+        }
+
+        /* Styles for the user's text */
+        .userText{
+            text-align: right;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+    
+    </style>
+    <h1>Chat with BOJO</h1>
+    <div>
+        <!-- Chat box for displaying conversation -->
+        <div id="chatBox">
+            <p class="botText"><span>Y'ello, my name is Bojo, MTN's customer service bot. How can i help you today?</span></p>
+        </div>
+        <div id="user">
+            <p class="userText"><span></span></p>
+        </div>
+
+        <!-- User input section -->
+        <div id="userInput">
+            <input id="textInput" type="text" name="userMessage" placeholder="Type your message">
+            <input id="button" type="submit" value="Send"/>
+        </div>
+    </div>
+    
+    <script>
+        // Function to get user input and display the response
+        function getUserResponse() {
+            // Get the user's message from the input field
+            var userText = document.getElementById('textInput').value;
+            
+            // Create a new paragraph element for the user's message
+            var userHtml = document.createElement('p');
+            userHtml.className = 'userText'; // Set the class name
+            userHtml.innerHTML = "<span>" + userText + "</span>";
+            
+            // Append the user's message to the chat box
+            document.getElementById('chatBox').appendChild(userHtml);
+            
+            // Clear the input field
+            document.getElementById('textInput').value = '';
+            
+            // Scroll the user input into view smoothly
+            document.getElementById('userInput').scrollIntoView({block:'start',behavior:"smooth"});
+            
+            // Make an AJAX GET request to the server
+            $.get('/get', {userMessage: userText}).done(function(data) {
+                // Create a new paragraph element for the bot's response
+                var botHtml = "<p class='botText'><span>" + data.response + "</span></p>";
+                
+                // Append the bot's response to the chat box
+                $('#chatBox').append(botHtml);
+            });
+        }
+
+        // Add an event listener to the send button to trigger the getUserResponse function
+        $('#button').click(function(){
+            getUserResponse();
+        });
+    </script>
 </body>
 </html>
