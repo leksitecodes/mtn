@@ -1,5 +1,5 @@
 {
-    "buids" : [{
+    "builds" : [{
         "src" : "customer_service/wsgi.py",
         "use" : "@vercel/python",
         "config" : { "maxlambdaSize" : "15mb", "runtime" : "python3.9"}
