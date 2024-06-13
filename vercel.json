@@ -4,9 +4,11 @@
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
-    "rewrites": [
-      { "source": "/mtn_bot", "destination": "/mtn_bot/chat.html" },
-      { "source": "/admin/(.*)", "destination": "/admin/$1" }
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "customer_service/wsgi.py"
+      }
     ]
   }
   
