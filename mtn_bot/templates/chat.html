@@ -81,7 +81,7 @@
             document.getElementById('userInput').scrollIntoView({block:'start',behavior:"smooth"});
             
             // Make an AJAX GET request to the server
-            $.get('/get', {userMessage: userText}).done(function(data) {
+            $.get('/get_response', {userMessage: userText}).done(function(data) {
                 // Create a new paragraph element for the bot's response
                 var botHtml = "<p class='botText'><span>" + data.response + "</span></p>";
                 
