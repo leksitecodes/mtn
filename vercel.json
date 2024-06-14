@@ -1,14 +1,25 @@
 {
-    "builds": [{
-      "src": "customer_service/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
-    }],
-    "routes": [
+  "builds": [
       {
-        "src": "/(.*)",
-        "dest": "customer_service/wsgi.py"
+          "src": "customer_service/wsgi.py",
+          "use": "@vercel/python",
+          "config": { "maxlambdaSize": "15mb", "runtime": "python3.9" }
       }
-    ]
-  }
+  ],
+  "routes": [
+      {
+          "src": "/mtn_bot",
+          "dest": "/chat.html"
+      },
+      {
+          "src": "/admin",
+          "dest": "/admin"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "customer_service/wsgi.py"
+      }
+  ]
+}
+
   
