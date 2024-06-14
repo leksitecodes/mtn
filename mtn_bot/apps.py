@@ -1,6 +1,8 @@
+# mtn_bot/apps.py
 from django.apps import AppConfig
 
-
 class MtnBotConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
     name = 'mtn_bot'
+
+    def ready(self):
+        from . import chatbot_init  # Import chatbot initialization logic here
