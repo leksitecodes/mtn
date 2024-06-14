@@ -168,11 +168,12 @@ list_for_training = [
 
 # Training data for the chatbot
 list_for_training2 = [
-                    "hi",
-                    "Y'ello, my name is Bojo, MTN's customer service bot. How can i help you today?",
+    "hi",
+    "Y'ello, my name is Bojo, MTN's customer service bot. How can i help you today?",
 
-                     "good morning",
-                    "Y'ello, my name is Bojo, MTN's customer service bot. How can i help you today?",
+    "good morning",
+    "Y'ello, my name is Bojo, MTN's customer service bot. How can i help you today?",
+
     "How do I activate MTN 4G LTE?",
     "To activate MTN 4G LTE, ensure your device supports 4G and your SIM card is 4G-enabled. Dial *444# to check your 4G status.",
     
