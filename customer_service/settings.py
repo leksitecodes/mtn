@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mtn_bot'
+    'mtn_bot',
     'mtn_bot.apps.MtnBotConfig',
 ]
 
