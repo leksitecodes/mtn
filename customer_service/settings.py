@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mtn_bot',
-    'mtn_bot.apps.MtnBotConfig',
 ]
 
 MIDDLEWARE = [
