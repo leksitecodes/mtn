@@ -1,20 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "customer_service/",
-      "use": "@vercel/python"
-    }
+    { "src": "customer_service/wsgi.py", "use": "@vercel/python" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "customer_service/wsgi.py"
-    }
-  ],
-  "env": {
-    "DJANGO_SETTINGS_MODULE": "customer_service.settings"
-  }
+    { "src": "/(.*)", "dest": "customer_service/wsgi.py" }
+  ]
 }
 
 
