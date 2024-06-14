@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .chatbot import bot
 
 # View function to handle user messages and return bot responses
 def get_response(request):
