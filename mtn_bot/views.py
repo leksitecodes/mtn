@@ -1,9 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from . import bot
+
 
 # View function to handle user messages and return bot responses
 def get_response(request):
+    from . import bot
     # Get the user message from the GET request parameters
     user_text = request.GET.get('userMessage')
     
