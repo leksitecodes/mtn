@@ -78,7 +78,7 @@
             document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
 
             // Make AJAX GET request
-            $.get('/mtn_bot/get_response/', {userMessage: userText}).done(function(data) {
+            $.get('/get', {userMessage: userText}).done(function(data) {
                 var botHtml = "<p class='botText'><span>" + data.response + "</span></p>";
                 $('#chatBox').append(botHtml);
 
