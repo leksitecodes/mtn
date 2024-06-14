@@ -18,7 +18,7 @@
 
 from django.http import JsonResponse
 from django.shortcuts import render
-from .chatbot import bot
+
 import logging
 
 # Configure logging
@@ -26,6 +26,7 @@ logger = logging.getLogger(__name__)
 
 # View function to handle user messages and return bot responses
 def get_response(request):
+    from .chatbot import bot
     user_text = request.GET.get('userMessage')
     logger.debug("Received user message: %s", user_text)
     
