@@ -13,8 +13,8 @@ bot = ChatBot(
             "maximum_similarity": 0.8  # Set the threshold for response similarity
         }
     ],
-    storage_adapter='chatterbot.storage.SQLStorageAdapter',  # Use SQLStorageAdapter to store conversation data in a SQL database
-    database_uri='sqlite:///database.sqlite3'  # URI for the SQLite database
+     storage_adapter='chatterbot.storage.SQLStorageAdapter',
+    database_uri='sqlite:///db.sqlite3'  # URI for the SQLite database
 )
 
 # Create a ListTrainer instance for training the bot with a list of responses

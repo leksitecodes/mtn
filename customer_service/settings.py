@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'OPTIONS': {
             'timeout': 30,  # Example option, adjust as needed
-            'journal_mode': 'WAL',  # Ensure WAL mode is set
+             # Ensure WAL mode is set
         },
     },
 }
