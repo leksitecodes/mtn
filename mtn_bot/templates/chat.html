@@ -63,35 +63,25 @@
     <script>
         // Function to get user input and display the response
         function getUserResponse() {
-            // Get the user's message from the input field
             var userText = document.getElementById('textInput').value;
-            
-            // Create a new paragraph element for the user's message
             var userHtml = document.createElement('p');
-            userHtml.className = 'userText'; // Set the class name
+            userHtml.className = 'userText';
             userHtml.innerHTML = "<span>" + userText + "</span>";
-            
-            // Append the user's message to the chat box
             document.getElementById('chatBox').appendChild(userHtml);
-            
-            // Clear the input field
             document.getElementById('textInput').value = '';
-            
-            // Scroll the user input into view smoothly
-            document.getElementById('userInput').scrollIntoView({block:'start',behavior:"smooth"});
-            
-            // Make an AJAX GET request to the server
-            $.get('/get_response', {userMessage: userText}).done(function(data) {
-                // Create a new paragraph element for the bot's response
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: "smooth"});
+
+            $.get('/get_response/', {userMessage: userText})
+            .done(function(data) {
                 var botHtml = "<p class='botText'><span>" + data.response + "</span></p>";
-                
-                // Append the bot's response to the chat box
                 $('#chatBox').append(botHtml);
+            })
+            .fail(function() {
+                alert("Error: Unable to reach the server.");
             });
         }
 
-        // Add an event listener to the send button to trigger the getUserResponse function
-        $('#button').click(function(){
+        $('#button').click(function() {
             getUserResponse();
         });
 
