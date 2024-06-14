@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat with Bot</title>
+    <title>Bojo</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* Add some basic styling */
@@ -21,6 +21,7 @@
             padding: 10px;
             border-radius: 10px;
             display: inline-block;
+            text-align: right;
         }
         .botText span {
             background-color: #f1f0f0;
@@ -50,11 +51,15 @@
         #button:hover {
             background-color: #0056b3;
         }
+        #chp{
+            font-size: 14;
+            color:  #ba0606;
+        }
     </style>
 </head>
 <body>
-    <h1 style="text-align:center;">Chat with Bot</h1>
-    <div id="chatBox"></div>
+    <h1 style="text-align:center;">Chat with Bojo</h1>
+    <div id="chatBox"><p id="chp">Please be aware that this is a beta version and may not give very accurate response. Call 180 if you have more technical issues.Thank you.</p></div>
     <div id="userInput">
         <input type="text" id="textInput" placeholder="Type a message...">
         <button id="button">Send</button>
