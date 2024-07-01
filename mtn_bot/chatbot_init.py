@@ -1,6 +1,6 @@
 from chatterbot import ChatBot  # Import the ChatBot class from the ChatterBot library
 from chatterbot.trainers import ListTrainer  # Import the ListTrainer class from the ChatterBot library
-from .training_lists import training_data1, training_data2, training_data3, training_data3, training_data4 # Import training data from custom modules
+from .training_lists import training_data1, training_data2, training_data3, training_data3, training_data4, training_data5 # Import training data from custom modules
 
 # Create an instance of ChatBot with the name 'mtnbot'
 bot = ChatBot(
@@ -25,3 +25,4 @@ list_trainer.train(training_data1)
 list_trainer.train(training_data2)
 list_trainer.train(training_data3)
 list_trainer.train(training_data4)
+list_trainer.train(training_data5)
