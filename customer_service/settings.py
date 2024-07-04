@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k9rg96edy&ary=h1kpxtdz0m#p9)6zghjl=(q6dn%u2zx^(ad$'
+SECRET_KEY = os.environ.get("SECRET KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("ALLOWED HOSTS").split(" ")
 
 # Application definition
 
@@ -83,8 +83,8 @@ DATABASES = {
         
 
 }
-
-DATABASES['default'] = dj_database_url.parse("postgresql://bot_db_u695_user:mWEFtewfXmz3ljXjUg7xXcGvxekM2gld@dpg-cplc9n7109ks73dq2j50-a.oregon-postgres.render.com/bot_db_u695")
+database_url = os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 
